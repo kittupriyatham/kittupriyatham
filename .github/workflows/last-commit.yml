@@ -26,10 +26,10 @@ jobs:
           with open('README.md', 'r') as f:
               content = f.read()
               
-          # Find the markers and replace the text inside them
-          pattern = r'().*?()'
-          replacement = f'\g<1>\nLast updated: {pure_string}\n\g<2>'
-          new_content = re.sub(pattern, replacement, content, flags=re.DOTALL)
+          # Find the 'Last updated:' line and replace it
+          pattern = r'Last updated:.*'
+          replacement = f'Last updated: {pure_string}'
+          new_content = re.sub(pattern, replacement, content)
           
           # Save the updated file
           with open('README.md', 'w') as f:
