@@ -51,6 +51,6 @@
 ---
 Credit: [kittupriyatham](https://github.com/kittupriyatham)
 
-Last Updated:
+Last updated:
 
 Joined GitHub on: 27-09-2013
