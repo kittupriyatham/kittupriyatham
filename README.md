@@ -52,6 +52,6 @@
 ---
 Credit: [kittupriyatham](https://github.com/kittupriyatham)
 
-![Last Commit](https://img.shields.io/github/last-commit/kittupriyatham/kittupriyatham?label=Last%20Updated)
+Last Updated:
 
 Joined GitHub on: 27-09-2013
