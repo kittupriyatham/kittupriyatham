@@ -16,9 +16,11 @@ jobs:
       - name: Format Date and Inject
         run: |
           # Generates the exact format: DD Month YYYY (e.g., 30 March 2021)
+
           PURE_STRING=$(date +"%d %B %Y")
-          
-          # Inject into the README replacing everything between the markers
+
+          # Inject into README replacing everything between the markers
+
           sed -i "//,//c\\nLast updated: $PURE_STRING\n" README.md
 
       - name: Commit and push changes
