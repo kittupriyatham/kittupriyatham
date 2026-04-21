@@ -47,5 +47,3 @@ Credit: [kittupriyatham](https://github.com/kittupriyatham)
 Last updated: 21 April 2026
 
 Joined GitHub on: 27-09-2013
-
-.......................
