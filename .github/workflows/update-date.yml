@@ -11,17 +11,30 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
-        uses: actions/checkout@v4
-
+        uses: actions/checkout@v6.0.2
+        
       - name: Format Date and Inject
         run: |
-          # Generates the exact format: DD Month YYYY (e.g., 30 March 2021)
-
-          PURE_STRING=$(date +"%d %B %Y")
-
-          # Inject into README replacing everything between the markers
-
-          sed -i "//,//c\\nLast updated: $PURE_STRING\n" README.md
+          python -c "
+          import re
+          from datetime import datetime
+          
+          # Generate the exact string
+          pure_string = datetime.now().strftime('%d %B %Y')
+          
+          # Read the current README
+          with open('README.md', 'r') as f:
+              content = f.read()
+              
+          # Find the markers and replace the text inside them
+          pattern = r'().*?()'
+          replacement = f'\g<1>\nLast updated: {pure_string}\n\g<2>'
+          new_content = re.sub(pattern, replacement, content, flags=re.DOTALL)
+          
+          # Save the updated file
+          with open('README.md', 'w') as f:
+              f.write(new_content)
+          "
 
       - name: Commit and push changes
         run: |
